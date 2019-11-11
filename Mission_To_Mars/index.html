@@ -16,54 +16,80 @@
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">BEGIN!!!!!</a></p>
     </div>
   </div>
-  <div class="container-fluid">
+  <div class="jumbotron">
     <div class="row">
-      <div class="col-md-12">
-        <div class="jumbotron">
-          <h2>
-            Mission To Mars
-          </h2>
-          <p>
-            <a class="btn btn-primary btn-large" href="#">Learn more</a>
-          </p>
-        </div> 
-        <button type="button" class="btn btn-success" href="/scrape">
-          BEGIN!!!!!
-        </button>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-8">
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-        <h2>
-          Mars Hemispheres
-        </h2>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6">
-      </div>
-      <div class="col-md-6">
-      </div>
-    </div>
+        <div class="col-md-12 mb-3">
+            <div class="card text-white bg-primary">
+              <div class="card-header">Mars Weather</div>
+              <div class="card-body sb-8">
+     
+                <p class="card-text">{{ mars_info.mars_weather }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+              <div class="card text-white bg-primary">
+                <div class="card-header">Mars News</div>
+                <div class="card-body sb-8">
+                  <h4 class="card-title">{{ mars_info.nasa_news_title }}</h4>
+                  <p class="card-text">{{ mars_info.nasa_news_teaser }}</p>
+                </div>
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+              <div class="card text-white bg-primary">
+                <div class="card-header">Mars Featured Image</div>
+                <img class="img-fluid" src="{{mars_info.featured_image_url}}" alt="{{mars_info.nasa_news_title}}">
+              </div>
+            </div>
+    
+            <div class="col-md-4">
+                <div class="card text-white bg-primary">
+                  <div class="card-header">Mars Facts</div>
+                  <div class="card-body sb-8">
+         
+                    <p class="card-text">{{ mars_info.mars_facts_df }}</p>
+                  </div>
+                </div>
+              </div>
+          </div>
+
+
   </div>
+</div>
+
+
+<div class="jumbotron">
+  <div class="row">
+
+
+
+
+  {% for hemi in mars_info.hs_title_img_final %}
+    
+      <div class="col-md-3">
+          <div class="card text-white bg-primary">
+              <div class="card-header">{{ hemi.title }}</div>
+              <img class="img-fluid w-100" src="{{ hemi.img_url }}" alt="{{ hemi.title }}">
+            
+        </div>
+      </div>
+    
+    {% endfor %}
+
+  </div>
+
+
+
+
+</div>
+</div>
+
+</body>
+
+</html>
 
 
   <!-- Optional JavaScript -->
